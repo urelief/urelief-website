@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Urelief</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container container">
+        <h2 style="color:white;">Urelief</h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="app.html">App</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <h1>About Urelief</h1>
+    <p style="margin-top: 10px; color:#555;">
+        Urelief was created to provide simple, fast, and anonymous emotional support to everyone.
+        Our mission is to ensure no one has to carry stress alone.
+    </p>
+</div>
+
+<footer>
+    © 2025 Urelief. All rights reserved.
+</footer>
+
+</body>
+</html>
