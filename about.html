@@ -3,33 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Urelief</title>
+    <title>About – URelief</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f8f8ff;
+        }
+
+        /* ===== Navigation ===== */
+        nav {
+            background: #08090a;
+            padding: 15px;
+            text-align: center;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 18px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        nav a:hover {
+            color: #bebcff;
+        }
+
+        /* ===== Hero Section (Same Gradient as Home Page) ===== */
+        .hero {
+            background: linear-gradient(135deg, rgba(90,79,207), rgba(27,23,62));
+            padding: 65px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 40px;
+            margin: 0;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* ===== Content Box ===== */
+        .section {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #493ec9;
+            margin-bottom: 12px;
+        }
+        /* FAQ Styling */
+        .faq-box {
+    display: grid;
+    gap: 18px;
+}
+
+.faq-item {
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid #dedbf9;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+}
+
+.faq-item h3 {
+    margin-bottom: 6px;
+    color: #3b32c2;
+    font-size: 20px;
+}
+
+.faq-item p {
+    color: #555;
+    line-height: 1.5;
+}
+
+         /* ===== Founder Box ===== */
+        .owner-box {
+            background: #efecff;
+            padding: 22px;
+            border-left: 6px solid #5A4FCF;
+            border-radius: 10px;
+        }
+
+        /* ===== Why Choose Us Section ===== */
+        .why-box {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+        }
+
+        .why-card {
+            background: #ffffff;
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid #dedbf9;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+        }
+
+        .why-card h3 {
+            color: #3b32c2;
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .why-box {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<header>
-    <div class="header-container container">
-        <h2 style="color:white;">Urelief</h2>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="app.html">App</a>
-        </nav>
-    </div>
-</header>
+<!-- Navigation -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+</nav>
 
-<div class="container">
-    <h1>About Urelief</h1>
-    <p style="margin-top: 10px; color:#555;">
-        Urelief was created to provide simple, fast, and anonymous emotional support to everyone.
-        Our mission is to ensure no one has to carry stress alone.
+<!-- Hero Section -->
+<div class="hero">
+    <h1>About URelief</h1>
+    <p>Your trusted space to talk, heal, and feel lighter.</p>
+</div>
+
+<!-- Mission -->
+<div class="section">
+    <h2>Our Mission</h2>
+    <p>
+        To provide instant, judgment-free listening to anyone who needs it.
     </p>
 </div>
 
-<footer>
-    © 2025 Urelief. All rights reserved.
-</footer>
+<!-- Vision -->
+<div class="section">
+    <h2>Our Vision</h2>
+    <p>
+        A world where no one has to carry stress alone.
+    </p>
+</div>
 
+<!-- Description -->
+<div class="section">
+    <h2>Description</h2>
+    <p>
+        URelief is a supportive platform designed to help people make better decisions, reduce stress,
+        and find emotional balance. Whether it’s academic confusion, personal issues, relationship stress,
+        or life decisions—URelief gives you clarity and comfort.
+    </p>
+</div>
+
+<!-- Why Choose Us -->
+<div class="section">
+    <h2>Why Choose URelief?</h2>
+
+    <div class="why-box">
+        <div class="why-card">
+            <h3>✔ 100% Private</h3>
+            <p>Your conversations remain fully confidential, always.</p>
+        </div>
+
+        <div class="why-card">
+            <h3>✔ Instant Support</h3>
+            <p>No waiting. Get guidance whenever you need it.</p>
+        </div>
+
+        <div class="why-card">
+            <h3>✔ Real Understanding</h3>
+            <p>We listen first. No judgement, no pressure—just support.</p>
+        </div>
+
+        <div class="why-card">
+            <h3>✔ Simple & Affordable</h3>
+            <p>High-quality emotional support at a very minimal cost.</p>
+        </div>
+
+        <div class="why-card">
+            <h3>✔ Easy to Use</h3>
+            <p>Talk through chat, call, or session—your comfort matters.</p>
+        </div>
+
+        <div class="why-card">
+            <h3>✔ Trusted by Many</h3>
+            <p>Our guidance has helped many people gain clarity & direction.</p>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="section">
+    <h2>Frequently Asked Questions (FAQ)</h2>
+
+    <div class="faq-box">
+
+        <div class="faq-item">
+            <h3>➤ What is URelief?</h3>
+            <p>URelief is a support platform that helps people reduce stress, gain clarity, and receive emotional guidance whenever needed.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>➤ How does URelief help me?</h3>
+            <p>We listen to your problems and provide simple, practical solutions. You can talk about anything—personal, academic, emotional, or professional.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>➤ Is my information private?</h3>
+            <p>Yes. Everything you share stays completely confidential and secure.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>➤ Who can use URelief?</h3>
+            <p>Anyone dealing with stress, confusion, anxiety, relationship issues, academic pressure, or emotional challenges.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>➤ How can I book a session?</h3>
+            <p>You can book directly through the website using the “Book Now” section on the home page.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>➤ Is this a therapy service?</h3>
+            <p>No, URelief is a guidance and support platform—not a clinical medical service.</p>
+        </div>
+
+    </div>
+</div>
+    
+<!-- Founder Message -->
+<div class="section owner-box">
+    <h2>Message from the Founder</h2>
+    <p>
+        “I started URelief after seeing how many people suffer silently with stress, problems,
+        and confusion. Most people have no one to talk to.  
+        URelief exists so no one has to face their problems alone.  
+        You deserve support—simple, safe, and real.”
+    </p>
+    <p><strong>— Founder, URelief</strong></p>
+</div>
+    
 </body>
 </html>
