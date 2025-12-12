@@ -177,3 +177,34 @@ header nav {
 .hero {
     margin-top: 80px; /* increase to push hero section down */
 }
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.faq-item {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item h3 {
+    font-size: 20px;
+    color: var(--violet-dark);
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    font-size: 16px;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(80,50,200,0.2);
+}
