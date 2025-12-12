@@ -37,7 +37,7 @@
     }
     .hero h1 { font-size:48px; font-weight:900; margin-bottom:16px; opacity:0; transform:translateY(-40px); animation: fadeInDown 1s ease forwards; }
     .hero p { font-size:20px; max-width:650px; margin:auto; opacity:0; transform:translateY(40px); animation: fadeInUp 1s ease forwards; animation-delay:0.3s; }
-    .btn { display:inline-block; margin-top:28px; padding:14px 34px; background: var(--white); color: var(--violet-dark); font-size:18px; border-radius:35px; font-weight:700; text-decoration:none; box-shadow: var(--shadow); transition: all 0.3s ease; }
+    .btn { display:inline-block; margin-top:28px; padding:14px 34px; background: var(--white); color: var(--violet-dark); font-size:18px; border-radius:35px; font-weight:700; text-decoration:none; box-shadow: var(--shadow); transition: all 0.3s ease; cursor:pointer; }
     .btn:hover { background: var(--violet-light); color: var(--white); }
 
     @keyframes fadeInDown { to { opacity:1; transform:translateY(0); } }
@@ -69,6 +69,17 @@
         position: absolute; border-radius:50%; background: rgba(255,255,255,0.15);
         pointer-events:none;
     }
+
+    /* Highlight pulse animation */
+    @keyframes pulseHighlight {
+        0% { box-shadow: 0 0 20px rgba(122,63,255,0.6); }
+        50% { box-shadow: 0 0 30px rgba(122,63,255,0.9); }
+        100% { box-shadow: 0 0 20px rgba(122,63,255,0.6); }
+    }
+    .highlight {
+        border: 3px solid var(--violet-light);
+        animation: pulseHighlight 1s ease infinite;
+    }
 </style>
 </head>
 <body>
@@ -85,7 +96,7 @@
 <section class="hero">
     <h1>Talk. Release. Heal.</h1>
     <p>Your compassionate space to feel lighter, calmer, and truly understood.</p>
-    <a href="#booking" class="btn">Book a Session</a>
+    <a href="#booking" class="btn" id="scrollBooking">Book a Session</a>
 </section>
 
 <section class="section">
@@ -129,7 +140,7 @@
 </footer>
 
 <script>
-    // Scroll animations
+    // Scroll animations for sections
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); }});
@@ -166,6 +177,17 @@
         requestAnimationFrame(animateParticles);
     }
     animateParticles();
+
+    // Scroll to booking and highlight
+    const bookingBtn = document.getElementById('scrollBooking');
+    const bookingSection = document.getElementById('booking');
+
+    bookingBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        bookingSection.classList.add('highlight');
+        setTimeout(() => bookingSection.classList.remove('highlight'), 2000);
+    });
 </script>
 
 </body>
