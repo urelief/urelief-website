@@ -23,6 +23,7 @@ body {
 }
 
 /* Header */
+
 header {
     background: var(--blue);
     color: var(--white);
@@ -152,4 +153,27 @@ footer {
     padding: 18px;
     text-align: center;
     font-size: 0.9rem;
+}
+/* --- Logo Bigger --- */
+header .avatar img {
+    width: 80px;   /* increase logo size */
+    height: 80px;
+}
+
+/* --- Header Layout: logo left, nav right --- */
+header {
+    display: flex;
+    justify-content: space-between; /* logo left, nav right */
+    align-items: center;
+    padding: 20px 40px; /* adjust spacing as needed */
+}
+
+header nav {
+    display: flex;
+    gap: 20px; /* space between menu items */
+}
+
+/* --- Shift hero heading lower --- */
+.hero {
+    margin-top: 80px; /* increase to push hero section down */
 }
