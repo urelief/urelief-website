@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>URelief – Talk. Heal. Feel Lighter.</title>
 <style>
-    /* Root Colors */
     :root {
         --violet: #6a40e4;
         --violet-dark: #4a25b5;
@@ -18,222 +17,66 @@
         --shadow: 0 6px 20px rgba(80, 50, 200, 0.15);
     }
 
-    /* Global Styles */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Inter", sans-serif;
-        scroll-behavior: smooth;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:"Inter", sans-serif; scroll-behavior:smooth; }
+    body { background: var(--bg-light); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
 
-    body {
-        background: var(--bg-light);
-        color: var(--text-dark);
-        line-height: 1.6;
-    }
-
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    /* Navbar */
     nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 18px 32px;
-        background: var(--black);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        display:flex; justify-content:space-between; align-items:center;
+        padding:18px 32px; background: var(--black); position: sticky; top:0; z-index:100;
+        box-shadow:0 2px 10px rgba(0,0,0,0.3);
     }
 
-    nav .logo {
-        font-size: 24px;
-        font-weight: 800;
-        color: var(--violet-light);
-    }
-
-    nav a {
-        margin-left: 25px;
-        font-weight: 600;
-        color: var(--white);
-        transition: 0.3s;
-    }
-
-    nav a:hover {
-        color: var(--violet-light);
-    }
+    nav .logo img { height:50px; }
+    nav a { margin-left:25px; font-weight:600; color: var(--white); transition:0.3s; }
+    nav a:hover { color: var(--violet-light); }
 
     /* Hero Section */
     .hero {
+        position: relative; padding: 120px 20px; text-align:center; color: var(--white); overflow:hidden;
         background: linear-gradient(135deg, var(--violet-dark), var(--violet));
-        padding: 120px 20px;
-        text-align: center;
-        color: var(--white);
-        overflow: hidden;
-        position: relative;
     }
 
-    .hero h1 {
-        font-size: 48px;
-        font-weight: 900;
-        margin-bottom: 16px;
-        opacity: 0;
-        transform: translateY(-40px);
-        animation: fadeInDown 1s ease forwards;
-    }
+    .hero h1 { font-size:48px; font-weight:900; margin-bottom:16px; opacity:0; transform:translateY(-40px); animation: fadeInDown 1s ease forwards; }
+    .hero p { font-size:20px; max-width:650px; margin:auto; opacity:0; transform:translateY(40px); animation: fadeInUp 1s ease forwards; animation-delay:0.3s; }
+    .btn { display:inline-block; margin-top:28px; padding:14px 34px; background: var(--white); color: var(--violet-dark); font-size:18px; border-radius:35px; font-weight:700; text-decoration:none; box-shadow: var(--shadow); transition: all 0.3s ease; }
+    .btn:hover { background: var(--violet-light); color: var(--white); }
 
-    .hero p {
-        font-size: 20px;
-        max-width: 650px;
-        margin: auto;
-        opacity: 0;
-        transform: translateY(40px);
-        animation: fadeInUp 1s ease forwards;
-        animation-delay: 0.3s;
-    }
-
-    .btn {
-        display: inline-block;
-        margin-top: 28px;
-        padding: 14px 34px;
-        background: var(--white);
-        color: var(--violet-dark);
-        font-size: 18px;
-        border-radius: 35px;
-        font-weight: 700;
-        text-decoration: none;
-        box-shadow: var(--shadow);
-        transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-        background: var(--violet-light);
-        color: var(--white);
-    }
-
-    @keyframes fadeInDown {
-        to { opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes fadeInUp {
-        to { opacity: 1; transform: translateY(0);}
-    }
+    @keyframes fadeInDown { to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
 
     /* Sections */
-    .section {
-        max-width: 1000px;
-        margin: 60px auto;
-        padding: 0 20px;
-        opacity: 0;
-        transform: translateY(40px);
-        transition: all 1s ease;
-    }
-
-    .section.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .section h2 {
-        font-size: 32px;
-        text-align: center;
-        color: var(--violet-dark);
-        margin-bottom: 30px;
-        position: relative;
-    }
-
-    .section h2::after {
-        content: '';
-        width: 60px;
-        height: 4px;
-        background: var(--violet);
-        display: block;
-        margin: 12px auto 0;
-        border-radius: 2px;
-    }
+    .section { max-width:1000px; margin:60px auto; padding:0 20px; opacity:0; transform:translateY(40px); transition: all 1s ease; }
+    .section.visible { opacity:1; transform:translateY(0); }
+    .section h2 { font-size:32px; text-align:center; color: var(--violet-dark); margin-bottom:30px; position: relative; }
+    .section h2::after { content:''; width:60px; height:4px; background: var(--violet); display:block; margin:12px auto 0; border-radius:2px; }
 
     /* Feature Grid */
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 22px;
-    }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:22px; }
+    .feature-box { background: var(--white); padding:22px; border-radius:16px; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .feature-box:hover { transform:translateY(-6px); box-shadow:0 12px 24px rgba(80,50,200,0.25);}
+    .feature-box span { font-weight:700; font-size:18px; color: var(--violet); }
 
-    .feature-box {
-        background: var(--white);
-        padding: 22px;
-        border-radius: 16px;
-        box-shadow: var(--shadow);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+    .card { background: var(--white); padding:32px; border-radius:16px; margin-bottom:30px; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card:hover { transform:translateY(-8px); box-shadow:0 12px 24px rgba(80,50,200,0.25);}
+    .card h3 { color: var(--violet-dark); font-size:24px; margin-bottom:16px; }
 
-    .feature-box:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 12px 24px rgba(80, 50, 200, 0.25);
-    }
+    .testimonial-box { background: var(--white); padding:22px; border-radius:14px; box-shadow: var(--shadow); border-left:5px solid var(--violet); transition: transform 0.3s ease; }
+    .testimonial-box:hover { transform: translateY(-6px); }
 
-    .feature-box span {
-        font-weight: 700;
-        font-size: 18px;
-        color: var(--violet);
-    }
+    footer { background: var(--black); padding:40px 20px; text-align:center; color: var(--white); margin-top:60px; }
 
-    /* Cards */
-    .card {
-        background: var(--white);
-        padding: 32px;
-        border-radius: 16px;
-        margin-bottom: 30px;
-        box-shadow: var(--shadow);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Animated Particles */
+    .particle {
+        position: absolute; border-radius:50%; background: rgba(255,255,255,0.15);
+        pointer-events:none;
     }
-
-    .card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 24px rgba(80, 50, 200, 0.25);
-    }
-
-    .card h3 {
-        color: var(--violet-dark);
-        font-size: 24px;
-        margin-bottom: 16px;
-    }
-
-    /* Testimonials */
-    .testimonial-box {
-        background: var(--white);
-        padding: 22px;
-        border-radius: 14px;
-        box-shadow: var(--shadow);
-        border-left: 5px solid var(--violet);
-        transition: transform 0.3s ease;
-    }
-
-    .testimonial-box:hover {
-        transform: translateY(-6px);
-    }
-
-    /* Footer */
-    footer {
-        background: var(--black);
-        padding: 40px 20px;
-        text-align: center;
-        color: var(--white);
-        margin-top: 60px;
-    }
-
 </style>
 </head>
 <body>
 
-<!-- Navbar -->
 <nav>
-    <div class="logo">URelief</div>
+    <div class="logo"><img src="logo.png" alt="URelief Logo"></div>
     <div>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -241,14 +84,12 @@
     </div>
 </nav>
 
-<!-- Hero Section -->
 <section class="hero">
     <h1>Talk. Release. Heal.</h1>
     <p>Your compassionate space to feel lighter, calmer, and truly understood.</p>
     <a href="#booking" class="btn">Book a Session</a>
 </section>
 
-<!-- Why Choose Section -->
 <section class="section">
     <h2>Why Choose URelief?</h2>
     <div class="grid">
@@ -261,7 +102,6 @@
     </div>
 </section>
 
-<!-- How it Works -->
 <section class="section">
     <div class="card">
         <h3>How URelief Works</h3>
@@ -269,7 +109,6 @@
     </div>
 </section>
 
-<!-- Testimonials -->
 <section class="section">
     <h2>What People Say</h2>
     <div class="grid">
@@ -279,7 +118,6 @@
     </div>
 </section>
 
-<!-- Booking Section -->
 <section class="section" id="booking">
     <div class="card">
         <h3>Book a Session</h3>
@@ -288,22 +126,50 @@
     </div>
 </section>
 
-<!-- Footer -->
 <footer>
     <p>© 2025 URelief. All rights reserved. Built with care by Ojhaji.</p>
 </footer>
 
 <script>
-    // Scroll animations for sections
+    // Scroll animations
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting){
-                entry.target.classList.add('visible');
-            }
-        });
+        entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); }});
     }, {threshold: 0.2});
     sections.forEach(section => observer.observe(section));
+
+    // Floating particles
+    const hero = document.querySelector('.hero');
+    const numParticles = 30;
+    for(let i=0;i<numParticles;i++){
+        let particle = document.createElement('div');
+        particle.classList.add('particle');
+        let size = Math.random()*8+4; // 4px-12px
+        particle.style.width = size+'px';
+        particle.style.height = size+'px';
+        particle.style.left = Math.random()*100+'%';
+        particle.style.top = Math.random()*100+'%';
+        particle.dataset.speed = (Math.random()*1 + 0.2);
+        hero.appendChild(particle);
+    }
+
+    // Animate particles
+    function animateParticles(){
+        const particles = document.querySelectorAll('.particle');
+        particles.forEach(p => {
+            let top = parseFloat(p.style.top);
+            let speed = parseFloat(p.dataset.speed);
+            top -= speed;
+            if(top < -5) top = 105;
+            p.style.top = top + '%';
+            // Slight horizontal movement
+            let left = parseFloat(p.style.left);
+            left += Math.sin(Date.now()/1000 + left)*0.1;
+            p.style.left = left + '%';
+        });
+        requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
 </script>
 
 </body>
