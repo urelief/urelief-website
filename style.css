@@ -176,6 +176,8 @@ header nav {
 /* --- Shift hero heading lower --- */
 .hero {
     margin-top: 80px; /* increase to push hero section down */
+
+/*--- Faq Section Grid ---*/
 }
 .faq-grid {
     display: grid;
