@@ -1,279 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>URelief - Talk. Release. Heal.</title>
-  <style>
-    :root{--blue:#4a6cf7;--bg:#f4f7fb;--card:#ffffff;--muted:#6b7280}
-    body { font-family: Inter, system-ui, -apple-system, Arial, sans-serif; margin: 0; background: var(--bg); color: #111827; }
-    header { background: linear-gradient(180deg,var(--blue),#3d59d9); color: white; padding: 28px 20px; }
-    .container{max-width:1100px;margin:0 auto}
-    .header-row{display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:14px}
-    .logo-wrap{width:54px;height:54px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);border-radius:12px}
-    h1 { margin: 0; font-size: 1.6rem; }
-    nav a{color: rgba(255,255,255,0.95);text-decoration:none;margin-left:18px;font-weight:600}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>URelief - Talk. Release. Heal.</title>
+  <style>
+    :root{--blue:#4a6cf7;--bg:#f4f7fb;--card:#ffffff;--muted:#6b7280}
+    body { font-family: Inter, system-ui, -apple-system, Arial, sans-serif; margin: 0; background: var(--bg); color: #111827; }
+    header { background: linear-gradient(180deg,var(--blue),#3d59d9); color: white; padding: 28px 20px; }
+    .container{max-width:1100px;margin:0 auto}
+    .header-row{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo-wrap{width:54px;height:54px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);border-radius:12px}
+    h1 { margin: 0; font-size: 1.6rem; }
+    nav a{color: rgba(255,255,255,0.95);text-decoration:none;margin-left:18px;font-weight:600}
 
-    main{padding:40px 20px}
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:30px;align-items:center}
-    .hero-card{background:var(--card);padding:28px;border-radius:16px;box-shadow:0 6px 20px rgba(16,24,40,0.06)}
-    .tagline{color:var(--muted);margin-top:8px}
-    .cta{margin-top:18px}
-    button { background: var(--blue); color: white; padding: 12px 22px; border: none; border-radius: 10px; cursor: pointer; font-size: 1rem; }
+    main{padding:40px 20px}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:30px;align-items:center}
+    .hero-card{background:var(--card);padding:28px;border-radius:16px;box-shadow:0 6px 20px rgba(16,24,40,0.06)}
+    .tagline{color:var(--muted);margin-top:8px}
+    .cta{margin-top:18px}
+    button { background: var(--blue); color: white; padding: 12px 22px; border: none; border-radius: 10px; cursor: pointer; font-size: 1rem; }
 
-    .features{display:flex;gap:16px;flex-wrap:wrap;margin-top:22px}
-    .feature{flex:1 1 180px;background:var(--card);padding:18px;border-radius:12px;box-shadow:0 4px 12px rgba(16,24,40,0.04)}
+    .features{display:flex;gap:16px;flex-wrap:wrap;margin-top:22px}
+    .feature{flex:1 1 180px;background:var(--card);padding:18px;border-radius:12px;box-shadow:0 4px 12px rgba(16,24,40,0.04)}
 
-    /* Brand bio */
-    .brand-bio{margin-top:28px;text-align:left}
-    .brand-bio .card{padding:22px}
+    /* Brand bio */
+    .brand-bio{margin-top:28px;text-align:left}
+    .brand-bio .card{padding:22px}
 
-    /* App layout mockup */
-    .app-layout{display:flex;gap:18px;justify-content:center;margin-top:22px}
-    .screen{width:200px;height:420px;border-radius:22px;background:linear-gradient(180deg,white,#fbfdff);box-shadow:0 10px 30px rgba(16,24,40,0.08);padding:16px;display:flex;flex-direction:column}
-    .screen .top{height:56px;display:flex;align-items:center;gap:10px}
-    .avatar{width:40px;height:40px;border-radius:10px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-    .chat{flex:1;margin-top:12px;overflow:auto}
-    .msg{max-width:78%;padding:10px;border-radius:12px;margin-bottom:10px}
-    .msg.me{background:rgba(74,108,247,0.12);align-self:flex-end}
-    .msg.them{background:#f1f5f9}
+    /* App layout mockup */
+    .app-layout{display:flex;gap:18px;justify-content:center;margin-top:22px}
+    .screen{width:200px;height:420px;border-radius:22px;background:linear-gradient(180deg,white,#fbfdff);box-shadow:0 10px 30px rgba(16,24,40,0.08);padding:16px;display:flex;flex-direction:column}
+    .screen .top{height:56px;display:flex;align-items:center;gap:10px}
+    .avatar{width:40px;height:40px;border-radius:10px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .chat{flex:1;margin-top:12px;overflow:auto}
+    .msg{max-width:78%;padding:10px;border-radius:12px;margin-bottom:10px}
+    .msg.me{background:rgba(74,108,247,0.12);align-self:flex-end}
+    .msg.them{background:#f1f5f9}
 
-    footer { background: #0b1220; color: #c7cdd6; padding: 22px; text-align: center; font-size: 0.9rem; margin-top:36px }
+    footer { background: #0b1220; color: #c7cdd6; padding: 22px; text-align: center; font-size: 0.9rem; margin-top:36px }
 
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .app-layout{flex-direction:row;overflow:auto;padding-bottom:8px}
-    }
-  </style>
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .app-layout{flex-direction:row;overflow:auto;padding-bottom:8px}
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="logo-row">
-    <div class="avatar">
-        <img src="logo.png" alt="URelief Logo" style="width:60px;height:60px;border-radius:12px;">
-    </div>
-    <div>
-        <h1>URelief</h1>
-        <div style="font-size:0.9rem;color:rgb(255,255,255,0.9)">Talk. Release. Heal.</div>
-       </div>
-      </div>
-        <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="app.html">App</a
-     </nav>
-    </div>
-  </header>
+  <header>
+    <div class="logo-row">
+    <div class="avatar">
+        <img src="logo.png" alt="URelief Logo" style="width:60px;height:60px;border-radius:12px;">
+    </div>
+    <div>
+        <h1>URelief</h1>
+        <div style="font-size:0.9rem;color:rgb(255,255,255,0.9)">Talk. Release. Heal.</div>
+       </div>
+      </div>
+        <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="app.html">App</a
+     </nav>
+    </div>
+  </header>
 
-  <main class="container">
-    <section class="hero">
-      <div>
-        <div class="hero-card">
-          <h2>Talk to Someone Who Listens</h2>
-          <p class="tagline">URelief connects you with a trained listener who understands you. No judgment, no stress, just support.</p>
-          <div class="cta"><a href="https://forms.gle/ypPDt9Ehm1qEGWJy8" target="_blank"><button>Start Session</button></a></div>
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="hero-card">
+          <h2>Talk to Someone Who Listens</h2>
+          <p class="tagline">URelief connects you with a trained listener who understands you. No judgment, no stress, just support.</p>
+          <div class="cta"><a href="https://forms.gle/ypPDt9Ehm1qEGWJy8" target="_blank"><button>Start Session</button></a></div>
 
-          <div class="features">
-            <div class="feature"><strong>100% Private</strong><div style="color:var(--muted);margin-top:8px">Anonymity and secure chats</div></div>
-            <div class="feature"><strong>Affordable</strong><div style="color:var(--muted);margin-top:8px">Short calls and subscriptions</div></div>
-            <div class="feature"><strong>Fast Access</strong><div style="color:var(--muted);margin-top:8px">Talk in minutes, not weeks</div></div>
-          </div>
-        </div>
-      </div>
+          <div class="features">
+            <div class="feature"><strong>100% Private</strong><div style="color:var(--muted);margin-top:8px">Anonymity and secure chats</div></div>
+            <div class="feature"><strong>Affordable</strong><div style="color:var(--muted);margin-top:8px">Short calls and subscriptions</div></div>
+            <div class="feature"><strong>Fast Access</strong><div style="color:var(--muted);margin-top:8px">Talk in minutes, not weeks</div></div>
+          </div>
+        </div>
+      </div>
 
-      <div>
-        <div class="hero-card">
-          <h3>Instant Relief</h3>
-          <p style="color:var(--muted)">Choose chat or call — pick a listener, start talking, and feel lighter.</p>
-          <div style="margin-top:12px">
-            <strong style="display:block">Starting from ₹99/session</strong>
-            <p style="color:var(--muted);margin-top:6px">First-time users get a discount of 20% in first session.</p>
-         </div>
-        </div>
-      </div>
-    </section>
+      <div>
+        <div class="hero-card">
+          <h3>Instant Relief</h3>
+          <p style="color:var(--muted)">Choose chat or call — pick a listener, start talking, and feel lighter.</p>
+          <div style="margin-top:12px">
+            <strong style="display:block">Starting from ₹99/session</strong>
+            <p style="color:var(--muted);margin-top:6px">First-time users get a discount of 20% in first session.</p>
+         </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Brand Bio -->
-    <section id="about" class="brand-bio">
-      <div class="card">
-        <h3>Brand Bio</h3>
-        <p style="color:var(--muted)">URelief was founded to make emotional support simple, affordable, and anonymous. We believe everyone deserves a safe space to speak — whether to vent, ask for an opinion, or release stress. Our listeners are trained in active listening and empathy; they are not therapists, but they are compassionate humans ready to hear you. You can confess them anything, they are there, only to hear you.</p>
-        <p style="margin-top:10px"><strong>Mission:</strong> To provide instant, judgment-free listening to anyone who needs it.<br>
-        <strong>Vision:</strong> A world where no one has to carry stress alone.</p>
-      </div>
-    </section>
+    <!-- Brand Bio -->
+    <section id="about" class="brand-bio">
+      <div class="card">
+        <h3>Brand Bio</h3>
+        <p style="color:var(--muted)">URelief was founded to make emotional support simple, affordable, and anonymous. We believe everyone deserves a safe space to speak — whether to vent, ask for an opinion, or release stress. Our listeners are trained in active listening and empathy; they are not therapists, but they are compassionate humans ready to hear you. You can confess them anything, they are there, only to hear you.</p>
+        <p style="margin-top:10px"><strong>Mission:</strong> To provide instant, judgment-free listening to anyone who needs it.<br>
+        <strong>Vision:</strong> A world where no one has to carry stress alone.</p>
+      </div>
+    </section>
 
-    <!-- App layout mockup -->
-    <section id="app">
-      <h3 style="text-align:center">App Preview</h3>
-      <p style="text-align:center;color:var(--muted);max-width:800px;margin:6px auto 18px">A simple, calming interface focused on quick access to listeners, safe anonymous chats, and an easy booking flow.</p>
-      <div class="app-layout">
-        <div class="screen">
-          <div class="top"><div class="avatar">U</div><div style="font-weight:700">URelief</div></div>
-          <div style="margin-top:12px;font-size:0.95rem;color:var(--muted)">Home · Quick Connect</div>
-          <div class="chat">
-            <div class="msg them">Hi, I need someone to talk to.</div>
-            <div class="msg me">I'm here. Tell me what's on your mind.</div>
-          </div>
-          <div style="display:flex;gap:8px;margin-top:8px"><input style="flex:1;padding:10px;border-radius:10px;border:1px solid #e6eefc" placeholder="Type a message" /><button>Send</button></div>
-        </div>
+    <!-- App layout mockup -->
+    <section id="app">
+      <h3 style="text-align:center">App Preview</h3>
+      <p style="text-align:center;color:var(--muted);max-width:800px;margin:6px auto 18px">A simple, calming interface focused on quick access to listeners, safe anonymous chats, and an easy booking flow.</p>
+      <div class="app-layout">
+        <div class="screen">
+          <div class="top"><div class="avatar">U</div><div style="font-weight:700">URelief</div></div>
+          <div style="margin-top:12px;font-size:0.95rem;color:var(--muted)">Home · Quick Connect</div>
+          <div class="chat">
+            <div class="msg them">Hi, I need someone to talk to.</div>
+            <div class="msg me">I'm here. Tell me what's on your mind.</div>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:8px"><input style="flex:1;padding:10px;border-radius:10px;border:1px solid #e6eefc" placeholder="Type a message" /><button>Send</button></div>
+        </div>
 
-        <div class="screen">
-          <div class="top"><div class="avatar">A</div><div style="font-weight:700">Listeners</div></div>
-          <div style="margin-top:12px;font-size:0.95rem;color:var(--muted)">Choose a listener</div>
-          <div style="margin-top:12px">
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>URelief - Talk. Release. Heal.</title>
-  <style>
-    :root{--blue:#4a6cf7;--bg:#f4f7fb;--card:#ffffff;--muted:#6b7280}
-    body { font-family: Inter, system-ui, -apple-system, Arial, sans-serif; margin: 0; background: var(--bg); color: #111827; }
+        <div class="screen">
+          <div class="top"><div class="avatar">A</div><div style="font-weight:700">Listeners</div></div>
+          <div style="margin-top:12px;font-size:0.95rem;color:var(--muted)">Choose a listener</div>
+          <div style="margin-top:12px">
+            <div style="background:#fff;border-radius:12px;padding:12px;margin-bottom:10px;box-shadow:0 6px 18px rgba(16,24,40,0.04)">
+              <div style="font-weight:700">Someone is — Active Listener</div>
+              <div style="color:var(--muted);font-size:0.9rem;margin-top:6px">Friendly, patient, great for relationship talks</div>
+            </div>
+            <div style="background:#fff;border-radius:12px;padding:12px;box-shadow:0 6px 18px rgba(16,24,40,0.04)">
+              <div style="font-weight:700">Someone gives — Calm Support</div>
+              <div style="color:var(--muted);font-size:0.9rem;margin-top:6px">Good for career and exam stress</div>
+            </div>
+          </div>
+        </div>
 
-    header { background: linear-gradient(180deg,var(--blue),#3d59d9); color: white; padding: 28px 20px; }
+        <div class="screen">
+          <div class="top"><div class="avatar">$</div><div style="font-weight:700">Bookings</div></div>
+          <div style="margin-top:12px;font-size:0.95rem;color:var(--muted)">Select time &amp; type</div>
+          <div style="margin-top:12px">
+            <div style="background:#fff;border-radius:12px;padding:12px;margin-bottom:10px;box-shadow:0 6px 18px rgba(16,24,40,0.04)">10-min first session at discount of 20%<button style="float:right;border-radius:8px;padding:6px 10px;border:none;background:var(--blue);color:white">Book</button></div>
+            <div style="background:#fff;border-radius:12px;padding:12px;box-shadow:0 6px 18px rgba(16,24,40,0.04)">30-min Call — ₹99<button style="float:right;border-radius:8px;padding:6px 10px;border:none;background:var(--blue);color:white">Book</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    .container{max-width:1100px;margin:0 auto}
-    .header-row{display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:14px}
-    .logo-wrap{width:54px;height:54px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);border-radius:12px}
-    h1 { margin: 0; font-size: 1.6rem; }
-    nav a{color: rgba(255,255,255,0.95);text-decoration:none;margin-left:18px;font-weight:600}
+  
 
-    main{padding:40px 20px}
-    .hero{display:flex;justify-content:center;align-items:center;margin-top:100px;} /* shifted lower */
-    .hero-card{background:var(--card);padding:28px;border-radius:16px;box-shadow:0 6px 20px rgba(16,24,40,0.06); max-width:600px; text-align:center;}
-    .tagline{color:var(--muted);margin-top:8px}
-    .cta{margin-top:18px; display:none;} /* hide booking button on hero card */
-    button { background: var(--blue); color: white; padding: 12px 22px; border: none; border-radius: 10px; cursor: pointer; font-size: 1rem; }
+  <!-- Booking Form Section -->
+  <section id="book" class="container" style="margin-top:40px">
+  <div class="hero-card" style="max-width:600px;margin:auto">
+    <h3>Book a Session</h3>
+    <p style="color:var(--muted);margin-bottom:14px">
+      Fill this form to book your session. Payment details will be sent after submission.
+    </p>
 
-    .features{display:flex;gap:16px;flex-wrap:wrap;margin-top:22px; justify-content:center}
-    .feature{flex:1 1 180px;background:var(--card);padding:18px;border-radius:12px;box-shadow:0 4px 12px rgba(16,24,40,0.04)}
+    <a href="https://forms.gle/ypPDt9Ehn1QEGWJp8" 
+       target="_blank" 
+       class="btn">
+       Open Booking Form
+    </a>
+  </div>
+This is my full code add your codes of the change in asked and generate me full codes ( without changing the non asked ones ) I'll copy paste
+</section>
 
-    /* Brand bio */
-    .brand-bio{margin-top:28px;text-align:center} /* center for homepage */
-    .brand-bio .card{padding:22px; display:inline-block; max-width:700px; text-align:left;}
 
-    /* App layout mockup */
-    .app-layout{display:flex;gap:18px;justify-content:center;margin-top:22px}
-    .screen{width:200px;height:420px;border-radius:22px;background:linear-gradient(180deg,white,#fbfdff);box-shadow:0 10px 30px rgba(16,24,40,0.08);padding:16px;display:flex;flex-direction:column}
-    .screen .top{height:56px;display:flex;align-items:center;gap:10px}
-    .avatar{width:40px;height:40px;border-radius:10px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-    .chat{flex:1;margin-top:12px;overflow:auto}
-    .msg{max-width:78%;padding:10px;border-radius:12px;margin-bottom:10px}
-    .msg.me{background:rgba(74,108,247,0.12);align-self:flex-end}
-    .msg.them{background:#f1f5f9}
+</main>
 
-    /* Booking button center */
-    #book { text-align:center; margin-top:50px; }
-    #book .hero-card { margin:auto; }
+  <footer>
+    © 2025 URelief. All rights reserved. • Built with care by OjhaJi
+  </footer>
 
-    footer { background: #0b1220; color: #c7cdd6; padding: 22px; text-align: center; font-size: 0.9rem; margin-top:36px }
-
-    /* Header adjustments: logo bigger + nav top right */
-    .logo-row { display:flex; justify-content:space-between; align-items:center; width:100%; }
-    .logo-row .avatar img { width:80px; height:80px; }
-
-    @media (max-width:900px){
-      .hero{flex-direction:column;}
-      .app-layout{flex-direction:row;overflow:auto;padding-bottom:8px}
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="logo-row">
-      <div class="avatar">
-        <img src="logo.png" alt="URelief Logo">
-      </div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="app.html">App</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-card">
-        <h2>Talk. Release. Heal.</h2>
-        <p class="tagline">URelief connects you with a trained listener who understands you. No judgment, no stress, just support.</p>
-        <div class="cta"><a href="#"><button>Start Session</button></a></div>
-      </div>
-    </section>
-
-    <!-- Brand Bio + Mission + Vision -->
-    <section class="brand-bio">
-      <div class="card">
-        <h3>Brand Bio</h3>
-        <p style="color:var(--muted)">URelief was founded to make emotional support simple, affordable, and anonymous. We believe everyone deserves a safe space to speak — whether to vent, ask for an opinion, or release stress. Our listeners are trained in active listening and empathy; they are not therapists, but they are compassionate humans ready to hear you. You can confess them anything, they are there, only to hear you.</p>
-        <p style="margin-top:10px"><strong>Mission:</strong> To provide instant, judgment-free listening to anyone who needs it.<br>
-        <strong>Vision:</strong> A world where no one has to carry stress alone.</p>
-      </div>
-    </section>
-
-    <!-- App layout mockup -->
-    <section id="app">
-      <h3 style="text-align:center">App Preview</h3>
-      <p style="text-align:center;color:var(--muted);max-width:800px;margin:6px auto 18px">A simple, calming interface focused on quick access to listeners, safe anonymous chats, and an easy booking flow.</p>
-      <div class="app-layout">
-        <div class="screen">
-          <div class="top"><div class="avatar">U</div><div style="font-weight:700">URelief</div></div>
-          <div style="margin-top:12px;font-size:0.95rem;color:var(--muted)">Home · Quick Connect</div>
-          <div class="chat">
-            <div class="msg them">Hi, I need someone to talk to.</div>
-            <div class="msg me">I'm here. Tell me what's on your mind.</div>
-          </div>
-          <div style="display:flex;gap:8px;margin-top:8px"><input style="flex:1;padding:10px;border-radius:10px;border:1px solid #e6eefc" placeholder="Type a message" /><button>Send</button></div>
-        </div>
-
-        <div class="screen">
-          <div class="top"><div class="avatar">A</div><div style="font-weight:700">Listeners</div></div>
-          <div style="margin-top:12px;font-size:0.95rem;color:var(--muted)">Choose a listener</div>
-          <div style="margin-top:12px">
-            <div style="background:#fff;border-radius:12px;padding:12px;margin-bottom:10px;box-shadow:0 6px 18px rgba(16,24,40,0.04)">
-              <div style="font-weight:700">Someone is — Active Listener</div>
-              <div style="color:var(--muted);font-size:0.9rem;margin-top:6px">Friendly, patient, great for relationship talks</div>
-            </div>
-            <div style="background:#fff;border-radius:12px;padding:12px;box-shadow:0 6px 18px rgba(16,24,40,0.04)">
-              <div style="font-weight:700">Someone gives — Calm Support</div>
-              <div style="color:var(--muted);font-size:0.9rem;margin-top:6px">Good for career and exam stress</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="screen">
-          <div class="top"><div class="avatar">$</div><div style="font-weight:700">Bookings</div></div>
-          <div style="margin-top:12px;font-size:0.95rem;color:var(--muted)">Select time &amp; type</div>
-          <div style="margin-top:12px">
-            <div style="background:#fff;border-radius:12px;padding:12px;margin-bottom:10px;box-shadow:0 6px 18px rgba(16,24,40,0.04)">10-min first session at discount of 20%<button style="float:right;border-radius:8px;padding:6px 10px;border:none;background:var(--blue);color:white">Book</button></div>
-            <div style="background:#fff;border-radius:12px;padding:12px;box-shadow:0 6px 18px rgba(16,24,40,0.04)">30-min Call — ₹99<button style="float:right;border-radius:8px;padding:6px 10px;border:none;background:var(--blue);color:white">Book</button></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Booking Button -->
-    <section id="book" class="container">
-      <div class="hero-card" style="max-width:600px;margin:auto">
-        <h3>Book a Session</h3>
-        <p style="color:var(--muted);margin-bottom:14px">
-          Fill this form to book your session. Payment details will be sent after submission.
-        </p>
-        <a href="https://forms.gle/ypPDt9Ehn1QEGWJp8" target="_blank" class="btn">
-          Open Booking Form
-        </a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    © 2025 URelief. All rights reserved. • Built with care by OjhaJi
-  </footer>
 </body>
 </html>
