@@ -6,9 +6,9 @@
 <title>URelief – Talk. Heal. Feel Lighter.</title>
 <style>
     :root {
-        --violet: #6a40e4;
-        --violet-dark: #4a25b5;
-        --violet-light: #a996ff;
+        --violet: #4b00c2;         /* Darker violet */
+        --violet-dark: #330099;    /* Darker shade for contrast */
+        --violet-light: #7a3fff;   /* Adjusted light violet */
         --black: #0a0a0a;
         --white: #ffffff;
         --bg-light: #f4f2ff;
@@ -26,7 +26,6 @@
         padding:18px 32px; background: var(--black); position: sticky; top:0; z-index:100;
         box-shadow:0 2px 10px rgba(0,0,0,0.3);
     }
-
     nav .logo img { height:50px; }
     nav a { margin-left:25px; font-weight:600; color: var(--white); transition:0.3s; }
     nav a:hover { color: var(--violet-light); }
@@ -36,7 +35,6 @@
         position: relative; padding: 120px 20px; text-align:center; color: var(--white); overflow:hidden;
         background: linear-gradient(135deg, var(--violet-dark), var(--violet));
     }
-
     .hero h1 { font-size:48px; font-weight:900; margin-bottom:16px; opacity:0; transform:translateY(-40px); animation: fadeInDown 1s ease forwards; }
     .hero p { font-size:20px; max-width:650px; margin:auto; opacity:0; transform:translateY(40px); animation: fadeInUp 1s ease forwards; animation-delay:0.3s; }
     .btn { display:inline-block; margin-top:28px; padding:14px 34px; background: var(--white); color: var(--violet-dark); font-size:18px; border-radius:35px; font-weight:700; text-decoration:none; box-shadow: var(--shadow); transition: all 0.3s ease; }
@@ -144,7 +142,7 @@
     for(let i=0;i<numParticles;i++){
         let particle = document.createElement('div');
         particle.classList.add('particle');
-        let size = Math.random()*8+4; // 4px-12px
+        let size = Math.random()*8+4;
         particle.style.width = size+'px';
         particle.style.height = size+'px';
         particle.style.left = Math.random()*100+'%';
@@ -153,7 +151,6 @@
         hero.appendChild(particle);
     }
 
-    // Animate particles
     function animateParticles(){
         const particles = document.querySelectorAll('.particle');
         particles.forEach(p => {
@@ -162,7 +159,6 @@
             top -= speed;
             if(top < -5) top = 105;
             p.style.top = top + '%';
-            // Slight horizontal movement
             let left = parseFloat(p.style.left);
             left += Math.sin(Date.now()/1000 + left)*0.1;
             p.style.left = left + '%';
