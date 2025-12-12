@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About URelief – Talk. Heal. Feel Lighter.</title>
+<title>About – URelief</title>
 <style>
-    /* Root Colors */
     :root {
-        --violet: #6a40e4;
-        --violet-dark: #4a25b5;
-        --violet-light: #a996ff;
+        --violet: #4b00c2;         /* Darker violet */
+        --violet-dark: #330099;
+        --violet-light: #7a3fff;
         --black: #0a0a0a;
         --white: #ffffff;
         --bg-light: #f4f2ff;
@@ -18,203 +17,53 @@
         --shadow: 0 6px 20px rgba(80, 50, 200, 0.15);
     }
 
-    /* Global Styles */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Inter", sans-serif;
-        scroll-behavior: smooth;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:"Inter", sans-serif; scroll-behavior:smooth; }
+    body { background: var(--bg-light); color: var(--text-dark); line-height:1.6; }
+    a { text-decoration:none; color:inherit; }
 
-    body {
-        background: var(--bg-light);
-        color: var(--text-dark);
-        line-height: 1.6;
-    }
-
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    /* Navbar */
     nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 18px 32px;
-        background: var(--black);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        display:flex; justify-content:space-between; align-items:center;
+        padding:18px 32px; background: var(--black); position: sticky; top:0; z-index:100;
+        box-shadow:0 2px 10px rgba(0,0,0,0.3);
     }
+    nav .logo img { height:50px; }
+    nav a { margin-left:25px; font-weight:600; color: var(--white); transition:0.3s; }
+    nav a:hover { color: var(--violet-light); }
 
-    nav .logo {
-        font-size: 24px;
-        font-weight: 800;
-        color: var(--violet-light);
-    }
-
-    nav a {
-        margin-left: 25px;
-        font-weight: 600;
-        color: var(--white);
-        transition: 0.3s;
-    }
-
-    nav a:hover {
-        color: var(--violet-light);
-    }
-
-    /* Hero Section */
-    .hero {
-        background: linear-gradient(135deg, var(--violet-dark), var(--violet));
-        padding: 120px 20px;
+    /* Vision Section */
+    .vision {
+        position: relative;
+        padding: 100px 20px 60px;
         text-align: center;
+        background: linear-gradient(135deg, var(--violet-dark), var(--violet));
         color: var(--white);
         overflow: hidden;
-        position: relative;
     }
-
-    .hero h1 {
-        font-size: 48px;
-        font-weight: 900;
-        margin-bottom: 16px;
-        opacity: 0;
-        transform: translateY(-40px);
-        animation: fadeInDown 1s ease forwards;
-    }
-
-    .hero p {
-        font-size: 20px;
-        max-width: 650px;
-        margin: auto;
-        opacity: 0;
-        transform: translateY(40px);
-        animation: fadeInUp 1s ease forwards;
-        animation-delay: 0.3s;
-    }
-
-    @keyframes fadeInDown {
-        to { opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes fadeInUp {
-        to { opacity: 1; transform: translateY(0);}
-    }
+    .vision h2 { font-size:40px; margin-bottom:16px; }
+    .vision p { font-size:20px; max-width:700px; margin:auto; }
 
     /* Sections */
-    .section {
-        max-width: 1000px;
-        margin: 60px auto;
-        padding: 0 20px;
-        opacity: 0;
-        transform: translateY(40px);
-        transition: all 1s ease;
-    }
+    .section { max-width:1000px; margin:60px auto; padding:0 20px; opacity:0; transform:translateY(40px); transition: all 1s ease; }
+    .section.visible { opacity:1; transform:translateY(0); }
+    .section h2 { font-size:32px; text-align:center; color: var(--violet-dark); margin-bottom:30px; position: relative; }
+    .section h2::after { content:''; width:60px; height:4px; background: var(--violet); display:block; margin:12px auto 0; border-radius:2px; }
+    .section p { margin-top:12px; font-size:18px; color: var(--text-dark); }
 
-    .section.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    .owner-box { background: var(--white); padding:40px; border-radius:16px; box-shadow: var(--shadow); text-align:center; margin-bottom:30px; }
 
-    .section h2 {
-        font-size: 32px;
-        text-align: center;
-        color: var(--violet-dark);
-        margin-bottom: 30px;
-        position: relative;
-    }
+    footer { background: var(--black); padding:40px 20px; text-align:center; color: var(--white); margin-top:60px; }
 
-    .section h2::after {
-        content: '';
-        width: 60px;
-        height: 4px;
-        background: var(--violet);
-        display: block;
-        margin: 12px auto 0;
-        border-radius: 2px;
+    /* Floating particles */
+    .particle {
+        position: absolute; border-radius:50%; background: rgba(255,255,255,0.15);
+        pointer-events:none;
     }
-
-    /* Cards */
-    .card {
-        background: var(--white);
-        padding: 32px;
-        border-radius: 16px;
-        margin-bottom: 30px;
-        box-shadow: var(--shadow);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 24px rgba(80, 50, 200, 0.25);
-    }
-
-    .card h3 {
-        color: var(--violet-dark);
-        font-size: 24px;
-        margin-bottom: 16px;
-    }
-
-    /* FAQ Section */
-    .faq-item {
-        background: var(--white);
-        padding: 20px 24px;
-        margin-bottom: 18px;
-        border-left: 5px solid var(--violet);
-        border-radius: 10px;
-        cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .faq-item:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow);
-    }
-
-    .faq-item h3 {
-        font-size: 18px;
-        color: var(--violet-dark);
-    }
-
-    .faq-item p {
-        margin-top: 10px;
-        color: var(--text-muted);
-        display: none;
-    }
-
-    /* Founder Message */
-    .owner-box p {
-        font-size: 18px;
-        margin-bottom: 16px;
-    }
-
-    .owner-box strong {
-        display: block;
-        margin-top: 10px;
-        color: var(--violet-dark);
-        font-size: 20px;
-    }
-
-    /* Footer */
-    footer {
-        background: var(--black);
-        padding: 40px 20px;
-        text-align: center;
-        color: var(--white);
-        margin-top: 60px;
-    }
-
 </style>
 </head>
 <body>
 
-<!-- Navbar -->
 <nav>
-    <div class="logo">URelief</div>
+    <div class="logo"><img src="logo.png" alt="URelief Logo"></div>
     <div>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -222,59 +71,55 @@
     </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="hero">
-    <h1>About URelief</h1>
-    <p>We provide a safe, compassionate space to talk, feel lighter, and find clarity in life.</p>
+<!-- Vision Section with particles -->
+<section class="vision">
+    <h2>Our Vision</h2>
+    <p>A world where no one has to carry stress alone.</p>
 </section>
 
-<!-- Vision -->
-<div class="section">
-    <h2>Our Vision</h2>
-    <p style="text-align:center;">A world where no one has to carry stress alone.</p>
-</div>
-
-<!-- Description -->
-<div class="section">
+<!-- Description Section -->
+<section class="section">
     <h2>Description</h2>
     <p>
         URelief is a supportive platform designed to help people make better decisions, reduce stress,
         and find emotional balance. Whether it’s academic confusion, personal issues, relationship stress,
         or life decisions—URelief gives you clarity and comfort.
     </p>
-</div>
+</section>
 
 <!-- FAQ Section -->
-<div class="section">
+<section class="section">
     <h2>Frequently Asked Questions (FAQ)</h2>
-    <div class="faq-item">
-        <h3>➤ What is URelief?</h3>
-        <p>URelief is a support platform that helps people reduce stress, gain clarity, and receive emotional guidance whenever needed.</p>
+    <div>
+        <div class="faq-item">
+            <h3>➤ What is URelief?</h3>
+            <p>URelief is a support platform that helps people reduce stress, gain clarity, and receive emotional guidance whenever needed.</p>
+        </div>
+        <div class="faq-item">
+            <h3>➤ How does URelief help me?</h3>
+            <p>We listen to your problems and provide simple, practical solutions. You can talk about anything—personal, academic, emotional, or professional.</p>
+        </div>
+        <div class="faq-item">
+            <h3>➤ Is my information private?</h3>
+            <p>Yes. Everything you share stays completely confidential and secure.</p>
+        </div>
+        <div class="faq-item">
+            <h3>➤ Who can use URelief?</h3>
+            <p>Anyone dealing with stress, confusion, anxiety, relationship issues, academic pressure, or emotional challenges.</p>
+        </div>
+        <div class="faq-item">
+            <h3>➤ How can I book a session?</h3>
+            <p>You can book directly through the website using the “Book Now” section on the home page.</p>
+        </div>
+        <div class="faq-item">
+            <h3>➤ Is this a therapy service?</h3>
+            <p>No, URelief is a guidance and support platform—not a clinical medical service.</p>
+        </div>
     </div>
-    <div class="faq-item">
-        <h3>➤ How does URelief help me?</h3>
-        <p>We listen to your problems and provide simple, practical solutions. You can talk about anything—personal, academic, emotional, or professional.</p>
-    </div>
-    <div class="faq-item">
-        <h3>➤ Is my information private?</h3>
-        <p>Yes. Everything you share stays completely confidential and secure.</p>
-    </div>
-    <div class="faq-item">
-        <h3>➤ Who can use URelief?</h3>
-        <p>Anyone dealing with stress, confusion, anxiety, relationship issues, academic pressure, or emotional challenges.</p>
-    </div>
-    <div class="faq-item">
-        <h3>➤ How can I book a session?</h3>
-        <p>You can book directly through the website using the “Book Now” section on the home page.</p>
-    </div>
-    <div class="faq-item">
-        <h3>➤ Is this a therapy service?</h3>
-        <p>No, URelief is a guidance and support platform—not a clinical medical service.</p>
-    </div>
-</div>
+</section>
 
 <!-- Founder Message -->
-<div class="section owner-box">
+<section class="section owner-box">
     <h2>Message from the Founder</h2>
     <p>
         “I started URelief after seeing how many people suffer silently with stress, problems,
@@ -283,36 +128,50 @@
         You deserve support—simple, safe, and real.”
     </p>
     <p><strong>— Founder, URelief</strong></p>
-</div>
+</section>
 
-<!-- Footer -->
 <footer>
     <p>© 2025 URelief. All rights reserved. Built with care by Ojhaji.</p>
 </footer>
 
 <script>
-    // FAQ Toggle
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const p = item.querySelector('p');
-            p.style.display = p.style.display === 'block' ? 'none' : 'block';
-        });
-    });
-
-    // Scroll Animations for sections
+    // Scroll fade-in animations
     const sections = document.querySelectorAll('.section');
     const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting){
-                entry.target.classList.add('visible');
-            }
-        });
+        entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); }});
     }, {threshold: 0.2});
+    sections.forEach(section => observer.observe(section));
 
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+    // Floating particles in vision section
+    const vision = document.querySelector('.vision');
+    const numParticles = 30;
+    for(let i=0;i<numParticles;i++){
+        let particle = document.createElement('div');
+        particle.classList.add('particle');
+        let size = Math.random()*8+4;
+        particle.style.width = size+'px';
+        particle.style.height = size+'px';
+        particle.style.left = Math.random()*100+'%';
+        particle.style.top = Math.random()*100+'%';
+        particle.dataset.speed = (Math.random()*1 + 0.2);
+        vision.appendChild(particle);
+    }
+
+    function animateParticles(){
+        const particles = document.querySelectorAll('.vision .particle');
+        particles.forEach(p => {
+            let top = parseFloat(p.style.top);
+            let speed = parseFloat(p.dataset.speed);
+            top -= speed;
+            if(top < -5) top = 105;
+            p.style.top = top + '%';
+            let left = parseFloat(p.style.left);
+            left += Math.sin(Date.now()/1000 + left)*0.1;
+            p.style.left = left + '%';
+        });
+        requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
 </script>
 
 </body>
